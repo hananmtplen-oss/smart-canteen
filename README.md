@@ -1,5 +1,7 @@
 # 🍲 Smart Canteen
 
+**Live demo → <https://hananmtplen-oss.github.io/smart-canteen/>**
+
 **Intelligent Pre-Ordering, Crowd Management & Food Demand Planning System** — a college hackathon prototype.
 
 A realistic, fully interactive web app that removes the canteen queue by moving ordering into the phone,
@@ -97,7 +99,17 @@ listed as standalone cards — but they price and forecast exactly like any othe
 
 ---
 
-## Putting it online (Vercel)
+## Deploying
+
+### GitHub Pages (what the live demo uses)
+
+Every push to `main` builds and publishes automatically via
+`.github/workflows/deploy-pages.yml`, so the shared link always reflects the latest commit.
+
+Asset paths are relative (`base: './'` in `vite.config.ts`), which is why one build works both at a domain
+root and under the `/smart-canteen/` subfolder a Pages project site uses.
+
+### Vercel
 
 The build is a static bundle, and the app uses a `HashRouter`, so no server-side routing rules are needed.
 `vercel.json` already declares the framework, build command and output directory.
