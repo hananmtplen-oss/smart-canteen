@@ -79,17 +79,10 @@ export default function KitchenOverview() {
               </p>
             </div>
             <div className="flex gap-2">
-              <LinkButton
-                to="/kitchen/queue"
-                className="bg-white text-slate-900 hover:bg-slate-100 shadow-none"
-              >
+              <LinkButton to="/kitchen/queue" variant="light">
                 Open live queue <ArrowRight size={15} />
               </LinkButton>
-              <LinkButton
-                to="/scanner"
-                variant="ghost"
-                className="text-white ring-1 ring-white/25 hover:bg-white/10"
-              >
+              <LinkButton to="/scanner" variant="lightGhost">
                 Scanner
               </LinkButton>
             </div>

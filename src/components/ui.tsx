@@ -88,7 +88,20 @@ export function SectionHeading({
 
 /* ---------- Buttons ---------- */
 
-export type ButtonVariant = 'primary' | 'dark' | 'secondary' | 'ghost' | 'danger' | 'amber';
+export type ButtonVariant =
+  | 'primary'
+  | 'dark'
+  | 'secondary'
+  | 'ghost'
+  | 'danger'
+  | 'amber'
+  /* For use on dark/coloured panels. These exist as real variants on purpose:
+     overriding a variant's colours through `className` is unreliable, because
+     Tailwind resolves conflicting utilities by stylesheet order rather than by
+     the order they appear in the class string. */
+  | 'light'
+  | 'lightAccent'
+  | 'lightGhost';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 const VARIANT: Record<ButtonVariant, string> = {
@@ -100,6 +113,10 @@ const VARIANT: Record<ButtonVariant, string> = {
   ghost: 'bg-transparent text-slate-600 hover:bg-slate-100 hover:text-slate-900',
   danger: 'bg-rose-600 text-white hover:bg-rose-700 active:bg-rose-800 shadow-sm shadow-rose-600/25',
   amber: 'bg-amber-500 text-white hover:bg-amber-600 active:bg-amber-700 shadow-sm shadow-amber-500/25',
+  light: 'bg-white text-slate-900 shadow-none hover:bg-slate-100 active:bg-slate-200',
+  lightAccent: 'bg-white text-emerald-700 shadow-none hover:bg-emerald-50 active:bg-emerald-100',
+  lightGhost:
+    'bg-transparent text-white ring-1 ring-white/25 hover:bg-white/10 active:bg-white/20 hover:text-white',
 };
 
 const SIZE: Record<ButtonSize, string> = {

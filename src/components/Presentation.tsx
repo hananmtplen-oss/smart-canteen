@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import {
   AlertTriangle,
+  ArrowDown,
   ArrowLeft,
   ArrowRight,
   BarChart3,
@@ -192,20 +193,20 @@ function CoverSlide() {
         </Pill>
       </div>
 
-      <h1 className="mt-5 font-display text-[2.7rem] leading-[0.95] font-extrabold tracking-tight sm:text-6xl lg:text-8xl">
+      <h1 className="mt-4 font-display text-[2.7rem] leading-[0.95] font-extrabold tracking-tight sm:text-6xl lg:text-8xl">
         <span className={HEADLINE_GRADIENT}>SMART</span>
         <br />
         <span className={HEADLINE_GRADIENT}>CANTEEN</span>
       </h1>
 
-      <p className="mx-auto mt-4 max-w-2xl text-[13px] leading-relaxed text-slate-300 sm:text-lg">
+      <p className="mx-auto mt-3 max-w-2xl text-[13px] leading-relaxed text-slate-300 sm:text-lg">
         Intelligent pre-ordering, crowd management &amp; food demand planning for the college canteen —
         built so students never queue, and the kitchen never guesses.
       </p>
 
       {/* Team badge with a five-node pentagon motif */}
-      <div className="mt-6 flex justify-center">
-        <div className="inline-flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.05] px-5 py-3 backdrop-blur-sm">
+      <div className="mt-5 flex justify-center">
+        <div className="inline-flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.05] px-5 py-2.5 backdrop-blur-sm">
           <span className="relative block h-10 w-11 shrink-0" aria-hidden>
             {[
               'left-1/2 top-0 -translate-x-1/2',
@@ -234,7 +235,7 @@ function CoverSlide() {
         </div>
       </div>
 
-      <div className="mt-5 grid grid-cols-1 gap-3 min-[480px]:grid-cols-3">
+      <div className="mt-4 grid grid-cols-1 gap-3 min-[480px]:grid-cols-3">
         {[
           { icon: <Timer size={16} />, label: '12-minute', sub: 'collection slots' },
           { icon: <QrCode size={16} />, label: 'Single-use QR', sub: 'contactless pickup' },
@@ -242,7 +243,7 @@ function CoverSlide() {
         ].map((s) => (
           <div
             key={s.label}
-            className="flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3"
+            className="flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5"
           >
             <span className="text-emerald-300">{s.icon}</span>
             <span className="text-left">
@@ -324,7 +325,7 @@ function CauseSlide() {
         lead="A canteen can only serve so many plates per minute. The problem is not the total number of lunches — it is that they all show up at once, with no information flowing in either direction."
       />
 
-      <div className="mt-7 grid grid-cols-1 gap-6 lg:grid-cols-[1.35fr_1fr]">
+      <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-[1.3fr_1fr]">
         {/* Arrival spike chart */}
         <div className="animate-deck-step rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:p-5" style={{ animationDelay: '120ms' }}>
           <div className="flex items-baseline justify-between">
@@ -332,7 +333,7 @@ function CauseSlide() {
             <span className="text-[11px] font-semibold text-slate-500">11:48 → 13:00</span>
           </div>
 
-          <div className="relative mt-4 h-40">
+          <div className="relative mt-4 h-28 sm:h-36">
             {/* capacity line */}
             <div className="absolute inset-x-0 top-[42%] border-t border-dashed border-emerald-400/50" />
             <span className="absolute top-[42%] right-0 -translate-y-full pb-1 text-[10px] font-bold tracking-wide text-emerald-300 uppercase">
@@ -358,32 +359,44 @@ function CauseSlide() {
             </div>
           </div>
 
-          <p className="mt-4 text-[12px] leading-relaxed text-slate-400">
+          <p className="mt-3 text-[12px] leading-relaxed text-slate-400">
             <span className="font-bold text-rose-300">Red = overload.</span> For roughly forty minutes the
-            canteen is receiving more students than it can physically serve, then sits idle for the rest of the
-            afternoon.
+            canteen receives more students than it can physically serve, then sits idle all afternoon.
           </p>
         </div>
 
-        <div className="space-y-3">
+        {/* Compact list rather than full cards — three stacked cards pushed the
+            third cause below the fold on a 720p projector. */}
+        <div className="grid grid-cols-1 gap-2.5 min-[520px]:grid-cols-3 lg:grid-cols-1">
           {[
             {
-              icon: <AlertTriangle size={17} />,
               title: 'No supply signal',
-              body: 'The kitchen plans by habit and yesterday\u2019s guess, not by data.',
+              body: 'The kitchen plans by habit, not by data.',
             },
             {
-              icon: <AlertTriangle size={17} />,
               title: 'No demand signal',
-              body: 'Students cannot see the crowd, so they cannot choose a better time.',
+              body: 'Students cannot see the crowd, so they cannot pick a better time.',
             },
             {
-              icon: <AlertTriangle size={17} />,
               title: 'No way to spread the load',
-              body: 'Nothing rewards students for coming at 12:48 instead of 12:30.',
+              body: 'Nothing rewards coming at 12:48 instead of 12:30.',
             },
           ].map((t, i) => (
-            <Tile key={t.title} {...t} accent="amber" delay={220 + i * 90} />
+            <div
+              key={t.title}
+              className="animate-deck-step flex items-start gap-3 rounded-xl border border-amber-400/20 bg-amber-400/[0.06] p-3 sm:p-3.5"
+              style={{ animationDelay: `${220 + i * 90}ms` }}
+            >
+              <span className="mt-0.5 shrink-0 text-amber-300">
+                <AlertTriangle size={16} />
+              </span>
+              <span className="min-w-0">
+                <span className="block font-display text-[14px] leading-snug font-bold text-white">
+                  {t.title}
+                </span>
+                <span className="mt-1 block text-[12px] leading-relaxed text-slate-400">{t.body}</span>
+              </span>
+            </div>
           ))}
         </div>
       </div>
@@ -809,6 +822,7 @@ export function Presentation({ onEnter }: { onEnter: () => void }) {
   );
 
   const [index, setIndex] = useState(0);
+  const [hasMore, setHasMore] = useState(false);
   const slideRef = useRef<HTMLDivElement | null>(null);
   const touchX = useRef<number | null>(null);
   const last = slides.length - 1;
@@ -850,6 +864,33 @@ export function Presentation({ onEnter }: { onEnter: () => void }) {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [go, index, last, onEnter]);
+
+  // The deck hides its scrollbar for a cleaner look, which would otherwise leave
+  // anything below the fold invisible — on a short projector viewport that reads
+  // as a missing bullet. Watch the scroll position and say so explicitly.
+  useEffect(() => {
+    const el = slideRef.current;
+    if (!el) return;
+    const measure = () => setHasMore(el.scrollHeight - el.clientHeight - el.scrollTop > 12);
+    measure();
+    // Observe rather than sampling on a timer: the slide's height changes when
+    // webfonts swap in and when the footer itself grows, and a one-shot
+    // measurement misses both.
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    if (el.firstElementChild) ro.observe(el.firstElementChild);
+    el.addEventListener('scroll', measure, { passive: true });
+    return () => {
+      ro.disconnect();
+      el.removeEventListener('scroll', measure);
+    };
+  }, [index]);
+
+  const showMore = useCallback(() => {
+    const el = slideRef.current;
+    if (!el) return;
+    el.scrollBy({ top: Math.max(180, el.clientHeight * 0.8), behavior: 'smooth' });
+  }, []);
 
   const slide = slides[index];
   const accent = ACCENT[slide.accent];
@@ -938,6 +979,21 @@ export function Presentation({ onEnter }: { onEnter: () => void }) {
 
       {/* ---------- Footer ---------- */}
       <footer className="relative z-20 shrink-0 border-t border-white/5 bg-slate-950/50 backdrop-blur-sm">
+        {/* Lives in the footer, not floating over the slide — an overlay here
+            would hide the very content it is pointing at. */}
+        {hasMore && (
+          <div className="flex justify-center pt-2.5">
+            <button
+              type="button"
+              onClick={showMore}
+              className="animate-deck-step inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1 text-[11px] font-bold text-slate-200 transition-colors hover:bg-white/15 hover:text-white"
+            >
+              <ArrowDown size={12} />
+              More on this slide
+            </button>
+          </div>
+        )}
+
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-8">
           <button
             type="button"
@@ -987,7 +1043,7 @@ export function Presentation({ onEnter }: { onEnter: () => void }) {
         </div>
 
         <p className="pb-2.5 text-center text-[10px] font-medium tracking-wide text-slate-600">
-          Use ← → or swipe · Esc skips to the app
+          {hasMore ? 'Scroll for the rest of this slide' : 'Use ← → or swipe · Esc skips to the app'}
         </p>
       </footer>
     </div>

@@ -44,7 +44,8 @@ impact and a roadmap — ending on a **Let's look at the website** button that h
 
 - **Navigate:** `←` `→`, `Space`, `PageUp`/`PageDown`, `Home`/`End`, swipe on touch, or the dots in the footer.
 - **Skip:** `Esc`, the **Skip intro** button, or opening any deep link (`/#/kitchen`).
-- **Replay:** the **Pitch Deck** button in the app header, or `/#/intro` directly.
+- **Tall slides:** if a slide is taller than the window, a **More on this slide** hint appears in the footer
+  (the deck hides its scrollbar, so this is the only cue that something is below the fold).
 
 Slides live in `src/components/Presentation.tsx` — the slide list is a plain array, so adding or reordering a
 slide is a one-line change.

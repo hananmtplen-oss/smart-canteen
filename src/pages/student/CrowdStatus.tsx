@@ -169,18 +169,10 @@ export default function CrowdStatus() {
                 {quietest.utilization}%). Ordering now gets you seated fastest.
               </p>
               <div className="mt-4 flex flex-wrap gap-2.5">
-                <Button
-                  variant="secondary"
-                  className="bg-white text-emerald-700 ring-0 hover:bg-emerald-50"
-                  onClick={() => navigate('/menu')}
-                >
+                <Button variant="lightAccent" onClick={() => navigate('/menu')}>
                   Order for this window
                 </Button>
-                <LinkButton
-                  to="/how-it-works"
-                  variant="ghost"
-                  className="text-emerald-50 ring-1 ring-white/30 hover:bg-white/10 hover:text-white"
-                >
+                <LinkButton to="/how-it-works" variant="lightGhost">
                   How the system works
                 </LinkButton>
               </div>

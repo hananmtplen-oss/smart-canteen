@@ -416,10 +416,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-7 flex flex-wrap items-center gap-3">
-          <LinkButton
-            to="/analytics"
-            className="bg-white text-emerald-700 hover:bg-emerald-50 shadow-none"
-          >
+          <LinkButton to="/analytics" variant="lightAccent">
             See the projected impact
           </LinkButton>
           <span className="text-[11px] font-semibold text-emerald-100/80">

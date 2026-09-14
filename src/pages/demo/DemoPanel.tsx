@@ -508,28 +508,16 @@ export default function DemoPanel() {
             </p>
           </div>
           <div className="flex flex-wrap gap-2.5">
-            <LinkButton to="/" className="bg-white text-slate-900 hover:bg-slate-100 shadow-none">
+            <LinkButton to="/" variant="light">
               Student
             </LinkButton>
-            <LinkButton
-              to="/kitchen"
-              variant="ghost"
-              className="text-white ring-1 ring-white/25 hover:bg-white/10"
-            >
+            <LinkButton to="/kitchen" variant="lightGhost">
               Kitchen
             </LinkButton>
-            <LinkButton
-              to="/scanner"
-              variant="ghost"
-              className="text-white ring-1 ring-white/25 hover:bg-white/10"
-            >
+            <LinkButton to="/scanner" variant="lightGhost">
               Scanner
             </LinkButton>
-            <LinkButton
-              to="/analytics"
-              variant="ghost"
-              className="text-white ring-1 ring-white/25 hover:bg-white/10"
-            >
+            <LinkButton to="/analytics" variant="lightGhost">
               Impact
             </LinkButton>
           </div>
