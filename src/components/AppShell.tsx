@@ -11,6 +11,7 @@ import {
   LayoutDashboard,
   LineChart,
   MonitorPlay,
+  Presentation as PresentationIcon,
   QrCode,
   ScanLine,
   ShoppingBag,
@@ -175,6 +176,16 @@ export function AppShell({ children }: { children: ReactNode }) {
                 );
               })}
             </div>
+
+            <Link
+              to="/intro"
+              title="Play the introduction deck"
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-violet-200 bg-violet-50 px-3 py-1.5 text-[12px] font-bold text-violet-700 transition-colors hover:bg-violet-100"
+            >
+              <PresentationIcon size={14} />
+              <span className="hidden sm:inline">Pitch Deck</span>
+              <span className="sm:hidden">Deck</span>
+            </Link>
 
             <span className="h-6 w-px shrink-0 bg-slate-200" />
 

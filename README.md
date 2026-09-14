@@ -36,6 +36,24 @@ No backend — all state lives in one reducer mirrored into `localStorage`.
 
 ---
 
+## The pitch deck
+
+Opening the site root (`/`) plays a **ten-slide presentation** rather than dropping straight into the app —
+cover page, problem statement, root cause, solution, the student flow, the kitchen side, benefits, simulated
+impact and a roadmap — ending on a **Let's look at the website** button that hands off to the real product.
+
+- **Navigate:** `←` `→`, `Space`, `PageUp`/`PageDown`, `Home`/`End`, swipe on touch, or the dots in the footer.
+- **Skip:** `Esc`, the **Skip intro** button, or opening any deep link (`/#/kitchen`).
+- **Replay:** the **Pitch Deck** button in the app header, or `/#/intro` directly.
+
+Slides live in `src/components/Presentation.tsx` — the slide list is a plain array, so adding or reordering a
+slide is a one-line change.
+
+> Deep links skip the deck on purpose. Reloading mid-demo on `/#/scanner` should never bounce you back to
+> slide one in front of judges.
+
+---
+
 ## The four interfaces
 
 Switch between them with the segmented control in the header.
